@@ -1,6 +1,8 @@
 *.pyc
-tags
-/build
+*.sqlite3
 *.swp
-/dist
+*.swo
+tags
 /MANIFEST
+/build
+/dist
