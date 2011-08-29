@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="green">Welcome</h1>
+
+<p>
+  This is an example Shopify application that shows what you can do with the Shopify API.
+</p>
+
+<h3>1. Make sure you've entered a valid <em>API-Key</em> and <em>Secret</em></h3>
+
+<p>
+  If you haven't registered your application yet, then you must do so to obtain an API-Key and Secret.
+</p>
+
+<ul>
+  <li>Shop owners can create applications for themeselves through their own admin (under Apps &gt; ManageApps)</li>
+  <li>Shopify Partners create applications through their <a href="https://www.shopify.com/services/partners/api_clients">admin</a></li>
+</ul>
+
+<p>
+  After registering your application with Shopify, you need to edit the <code>shopify_settings.py</code> file,
+  and insert your <em>API-Key</em> and <em>Secret</em> there. Then restart this application.
+</p>
+
+<h3 id="callback-step">2. Make sure your <em>callback URL</em> is correct</h3>
+
+<p class="description">
+  The URL should be <code>{{ callback_url }}</code>, 
+  with the host portion of the URL pointing to whichever domain is currently hosting this application. <br/> 
+  The callback URL of your app can be changed in the API screen of your Shopify admin interface.
+</p>
+
+<h3>3. <a href="{% url shopify_app.views.login %}">Login</a> to your shop</h3>
+
+<p class="description">
+  On login, the shop owner will be redirected to a Shopify URL containing the <strong>API-Key</strong> of the application.
+  The shop will need to grant access to your application to give it access to its private admin data.
+
+  After authenticating, the browser will be redirected to the <code>shopify_app.views.finalize</code> view,
+  which creates a session using the <strong>API-Secret</strong>, and then redirects to the example dashboard.<br/>
+  The example view at <code>home.views.index</code> will get the shop's recent <code>Orders</code> and <code>Articles</code> through the
+  Shopify <a href="http://www.xfront.com/REST-Web-Services.html" title="Get more information about REST web services in general">REST</a> API and list them with all of your <code>Products</code>.
+  You can click on a link of one of your objects and will then be taken to the corresponding admin area of your shop.<br/>
+
+  <p><strong>Note:</strong> There are no examples for <em>creating or editing</em> objects, but you are also able to do that with the Shopify API!</p>
+</p>
+
+<h3>4. Check out the source code of the <code>home.views.index</code> and its <code>home/index.html</code> template</h3>
+
+<p class="description">
+  You can analyze those files to see how the ShopifyAPI is used and get a glimpse of what's possible.
+</p>
+
+<h3>5. Read additional documentation</h3>
+
+<p class="description">
+  Become an expert.
+</p>
+
+<ul>
+  <li>
+    <a href="http://www.shopify.com/developers/api">API documentation</a>
+    <span class="hint">(An overview of what you can do with the Shopify API.)
+  </li>
+  <li>
+    <a href="http://wiki.shopify.com/">Wiki (needs its own API section)</a>
+    <span class="hint">(Get more information and share your knowledge.)
+  </li>
+  <li>
+    <a href="http://forums.shopify.com/community">Forum (needs its own API section)</a>
+    <span class="hint">(Ask questions and see what others already wanted to know.)
+  </li>
+</ul>
+
+<h3>6. Publish your application</h3>
+
+<p class="description">
+  This feature is not implemented yet, but it in the future it will allow you to register your application,
+  so that will be shown in a public directory with a description, so that more users will take notice of it.
+</p>
+{% endblock %}
