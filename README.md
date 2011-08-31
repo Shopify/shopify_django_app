@@ -7,7 +7,7 @@ the [Python Shopify API](https://github.com/shopify/shopify_python_api).
 This package contains two django apps, `shopify_app` which contains
 handles authentication and `home` which contains an example of how
 to use the API. Currently `home` displays basic information about
-the shop's products and orders, bug is meant to be modifed or
+the shop's products and orders, but is meant to be modifed or
 replaced to create your Shopify App.
 
 Requirements
