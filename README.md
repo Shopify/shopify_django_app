@@ -7,7 +7,7 @@ the [Python Shopify API](https://github.com/shopify/shopify_python_api).
 This package contains two django apps, `shopify_app` which contains
 handles authentication and `home` which contains an example of how
 to use the API. Currently `home` displays basic information about
-the shop's products and orders, bug is meant to be modifed or
+the shop's products and orders, but is meant to be modified or
 replaced to create your Shopify App.
 
 Requirements
@@ -39,7 +39,6 @@ Regular Django Application
    `python manage.py runserver`
 
 4. Visit <http://localhost:8000> to view the example.
-
 
 Google App Engine
 -----------------
@@ -91,8 +90,6 @@ Google App Engine
    Then upload the application:
 
    `appcfg.py update APPLICATION-ID`
-
-
 
 Questions or problems?
 ----------------------
