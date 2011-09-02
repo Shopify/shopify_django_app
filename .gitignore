@@ -6,3 +6,9 @@ tags
 /MANIFEST
 /build
 /dist
+/dateutil
+/django
+/djangoappengine
+/djangotoolbox
+/pyactiveresource
+/shopify
