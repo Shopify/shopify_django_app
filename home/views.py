@@ -5,7 +5,7 @@ from shopify_app.decorators import shop_login_required
 
 def welcome(request):
     return render_to_response('home/welcome.html', {
-        'callback_url': "http://{0}/login/finalize".format(request.get_host()),
+        'callback_url': "http://%s/login/finalize" % (request.get_host()),
     }, context_instance=RequestContext(request))
 
 @shop_login_required
