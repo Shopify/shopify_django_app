@@ -85,11 +85,11 @@ Google App Engine
 
 5. When you are ready to deploy your application, update the return
    URL on Shopify to point to your App Engine domain name (e.g.
-   http://APPLICATION-ID.appspot.com/login/finalize).
+   https://APPLICATION-ID.appspot.com/login/finalize).
 
    Then upload the application:
 
-   `appcfg.py update APPLICATION-ID`
+   `appcfg.py update .`
 
 Questions or problems?
 ----------------------
