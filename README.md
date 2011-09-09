@@ -24,9 +24,6 @@ partner.
 When you create your app in the Shopify Partner Account, set the return URL to
 http://localhost:8000/login/finalize
 
-You can also create a private application that only works for your shop by
-visiting https://YOUR-SHOP.myshopify.com/admin/api
-
 Regular Django Application
 --------------------------
 
@@ -37,22 +34,20 @@ Regular Django Application
 
     `easy_install Django ShopifyAPI PyYAML pyactiveresource`
 
-3.  Start the server
+3.  Create the database
+
+    `python manage.py syncdb`
+
+4.  Start the server
 
     `python manage.py runserver`
 
-4.  Visit <http://localhost:8000> to view the example.
+5.  Visit <http://localhost:8000> to view the example.
 
 Google App Engine
 -----------------
 
-1.  [Create an application](https://appengine.google.com/start) with
-    Google App Engine, and modify the application line in `app.yaml`
-    with the application ID registered with Google App Engine.
-
-2.  Install the [App Engine SDK](http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Python)
-
-3.  Download and unzip the [pre-configured zip file for App Engine](https://github.com/downloads/shopify/shopify_django_app/shopify_appengine-0.1.1.zip).
+1.  Download and unzip the [pre-configured zip file for App Engine](https://github.com/downloads/shopify/shopify_django_app/shopify_appengine-0.1.1.zip).
 
     Applications for the App Engine need to be self-contained, so
     the required libraries are included in the zip file along with
@@ -72,6 +67,12 @@ Google App Engine
     Or follow the links to download the source code for any of the
     projects, and run `python setup.py build` in the projects root
     directory, then move `build/lib/*` into the root of this project.
+
+2.  [Create an application](https://appengine.google.com/start) with
+    Google App Engine, and modify the application line in `app.yaml`
+    with the application ID registered with Google App Engine.
+
+3.  Install the [App Engine SDK](http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Python)
 
 4.  Obtain your applications API Key and Shared Secret, and modify
     `shopify_settings.py` to use these values.
