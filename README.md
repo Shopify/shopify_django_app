@@ -32,7 +32,7 @@ Regular Django Application
 
 2.  Install the pre-requisites:
 
-    `easy_install Django ShopifyAPI PyYAML pyactiveresource`
+    `easy_install Django ShopifyAPI`
 
 3.  Create the database
 
