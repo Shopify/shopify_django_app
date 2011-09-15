@@ -32,15 +32,21 @@ Regular Django Application
 
 2.  Install the pre-requisites:
 
-    `easy_install Django ShopifyAPI`
+    ```shell
+    easy_install Django ShopifyAPI
+    ```
 
 3.  Create the database
 
-    `python manage.py syncdb`
+    ```shell
+    python manage.py syncdb
+    ```
 
 4.  Start the server
 
-    `python manage.py runserver`
+    ```shell
+    python manage.py runserver
+    ```
 
 5.  Visit <http://localhost:8000> to view the example.
 
@@ -79,7 +85,9 @@ Google App Engine
 
 5.  Start the server
 
-    `python manage.py runserver`
+    ```shell
+    python manage.py runserver
+    ```
 
 6.  Visit <http://localhost:8000> to view the example.
 
@@ -89,7 +97,9 @@ Google App Engine
 
     Then upload the application:
 
-    `appcfg.py update .`
+    ```shell
+    appcfg.py update .
+    ```
 
 Questions or problems?
 ----------------------
