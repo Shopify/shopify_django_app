@@ -33,6 +33,12 @@ Regular Django Application
 2.  Install the pre-requisites:
 
     ```shell
+    pip install Django ShopifyAPI
+    ```
+
+    or
+
+    ```shell
     easy_install Django ShopifyAPI
     ```
 
@@ -107,8 +113,11 @@ Questions or problems?
 Read up on the possible API calls:
 <http://api.shopify.com>
 
-Talk to new friends:
-<http://forums.shopify.com/categories/9>
+Learn how to use the shopify\_python\_api library:
+<http://wiki.shopify.com/Using_the_shopify_python_api>
 
-Edit the docs:
+Ask technical questions on Stack Overflow:
+<http://stackoverflow.com/questions/tagged/shopify>
+
+Read and edit the wiki on Shopify App Developement:
 <http://wiki.shopify.com/Shopify_App_Development>
