@@ -12,3 +12,6 @@
 import os
 SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
 SHOPIFY_API_SECRET = os.environ.get('SHOPIFY_API_SECRET')
+# See http://api.shopify.com/authentication.html for available scopes
+# to determine the permisssions your app will need.
+SHOPIFY_API_SCOPE = ['read_products', 'read_orders']

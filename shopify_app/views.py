@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.conf import settings
 import shopify
 
 def _return_address(request):
@@ -20,7 +21,8 @@ def login(request):
 def authenticate(request):
     shop = request.REQUEST.get('shop')
     if shop:
-        permission_url = shopify.Session.create_permission_url(shop.strip())
+        scope = settings.SHOPIFY_API_SCOPE
+        permission_url = shopify.Session.create_permission_url(shop.strip(), scope)
         return redirect(permission_url)
 
     return redirect(_return_address(request))
@@ -33,7 +35,10 @@ def finalize(request):
         messages.error(request, "Could not log in to Shopify store.")
         return redirect(reverse('shopify_app.views.login'))
 
-    request.session['shopify'] = shopify_session
+    request.session['shopify'] = {
+                "shop_url": shop_url,
+                "access_token": shopify_session.token
+            }
     messages.info(request, "Logged in to shopify store.")
 
     response = redirect(_return_address(request))

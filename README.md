@@ -21,25 +21,27 @@ If you don't have an API key yet, create a
 an app. You can also create test shops once you're logged in as a
 partner.
 
-When you create your app in the Shopify Partner Account, set the return URL to
-http://localhost:8000/login/finalize
+When you create your app in the Shopify Partner Account, set the
+return URL to "http://localhost:8000/login/finalize", and set the
+authentication type to OAuth2.
 
 Regular Django Application
 --------------------------
 
 1.  Obtain your applications API Key and Shared Secret, and modify
-    `shopify_settings.py` to use these values.
+    `shopify_settings.py` to use these values. You can also modify
+    the permissions that your app needs in this settings file.
 
-2.  Install the pre-requisites:
+2.  Install or upgrade the pre-requisites:
 
     ```shell
-    pip install Django ShopifyAPI
+    pip install --upgrade Django ShopifyAPI
     ```
 
     or
 
     ```shell
-    easy_install Django ShopifyAPI
+    easy_install -U Django ShopifyAPI
     ```
 
 3.  Create the database
