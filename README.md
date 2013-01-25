@@ -61,26 +61,20 @@ Regular Django Application
 Google App Engine
 -----------------
 
-1.  Download and unzip the [pre-configured zip file for App Engine](https://github.com/downloads/shopify/shopify_django_app/shopify_appengine-0.1.1.zip).
+1. Applications for the App Engine need to be self-contained, so
+   the required libraries need to be included along with the
+   projects source code.
 
-    Applications for the App Engine need to be self-contained, so
-    the required libraries are included in the zip file along with
-    the projects source code.
-
-    To migrate an existing project to App Engine, just copy the
-    following directories from zip file to your projects root
-    directory:
-
-    * [dateutil](http://pypi.python.org/pypi/python-dateutil)
-    * [django](http://www.allbuttonspressed.com/projects/django-nonrel)
-    * [djangoappengine](http://www.allbuttonspressed.com/projects/djangoappengine)
-    * [djangotoolbox](http://www.allbuttonspressed.com/projects/djangotoolbox)
-    * [pyactiveresource](http://pypi.python.org/pypi/pyactiveresource)
-    * [shopify](http://pypi.python.org/pypi/ShopifyAPI)
-
-    Or follow the links to download the source code for any of the
-    projects, and run `python setup.py build` in the projects root
-    directory, then move `build/lib/*` into the root of this project.
+   Follow the links to download the source code for these of the
+   dependant libraries, and run `python setup.py build` in the
+   projects root directory, then move `build/lib/*` into the root
+   of this project.
+   * [dateutil](http://pypi.python.org/pypi/python-dateutil)
+   * [django](http://www.allbuttonspressed.com/projects/django-nonrel)
+   * [djangoappengine](http://www.allbuttonspressed.com/projects/djangoappengine)
+   * [djangotoolbox](http://www.allbuttonspressed.com/projects/djangotoolbox)
+   * [pyactiveresource](http://pypi.python.org/pypi/pyactiveresource)
+   * [shopify](http://pypi.python.org/pypi/ShopifyAPI)
 
 2.  [Create an application](https://appengine.google.com/start) with
     Google App Engine, and modify the application line in `app.yaml`
