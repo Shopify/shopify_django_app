@@ -22,7 +22,7 @@ an app. You can also create test shops once you're logged in as a
 partner.
 
 When you create your app in the Shopify Partner Account, set the
-return URL to "http://localhost:8000/login/finalize", and set the
+return URL to "http://localhost:8000/login", and set the
 authentication type to OAuth2.
 
 Regular Django Application
@@ -95,7 +95,7 @@ Google App Engine
 
 7.  When you are ready to deploy your application, update the return
     URL on Shopify to point to your App Engine domain name (e.g.
-    https://APPLICATION-ID.appspot.com/login/finalize).
+    https://APPLICATION-ID.appspot.com/login).
 
     Then upload the application:
 

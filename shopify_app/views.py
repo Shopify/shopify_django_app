@@ -22,7 +22,8 @@ def authenticate(request):
     shop = request.REQUEST.get('shop')
     if shop:
         scope = settings.SHOPIFY_API_SCOPE
-        permission_url = shopify.Session.create_permission_url(shop.strip(), scope)
+        redirect_uri = request.build_absolute_uri(reverse('shopify_app.views.finalize'))
+        permission_url = shopify.Session.create_permission_url(shop.strip(), scope, redirect_uri)
         return redirect(permission_url)
 
     return redirect(_return_address(request))
