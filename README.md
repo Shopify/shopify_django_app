@@ -22,8 +22,7 @@ an app. You can also create test shops once you're logged in as a
 partner.
 
 When you create your app in the Shopify Partner Account, set the
-return URL to "http://localhost:8000/login", and set the
-authentication type to OAuth2.
+return URL to "http://localhost:8000/login".
 
 Regular Django Application
 --------------------------
