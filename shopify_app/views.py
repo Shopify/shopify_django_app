@@ -38,10 +38,7 @@ def finalize(request):
         messages.error(request, "Could not log in to Shopify store.")
         return redirect(reverse('shopify_app.views.login'))
 
-    request.session['shopify'] = {
-                "shop_url": shop_url,
-                "access_token": shopify_session.token
-            }
+    request.session['shopify'] = dict(shop_url=shop_url, access_token=shopify_session.token)
     messages.info(request, "Logged in to shopify store.")
 
     response = redirect(_return_address(request))
