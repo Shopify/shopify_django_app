@@ -12,5 +12,4 @@ tags
 /djangotoolbox
 /pyactiveresource
 /shopify
-shopify_settings.py
 *.sqlite3
