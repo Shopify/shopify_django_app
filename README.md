@@ -24,6 +24,15 @@ partner.
 When you create your app in the Shopify Partner Account, set the
 return URL to "http://localhost:8000/login".
 
+Developing on Nitrous.IO
+------------------------
+
+Start hacking on this app on [Nitrous.IO](https://www.nitrous.io/?utm_source=github.com&utm_campaign=shopify_django_app&utm_medium=hackonnitrous) in seconds:
+
+[![Hack shopify/shopify_django_app on
+Nitrous.IO](https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png)](https://www.nitrous.io/hack_button?source=embed&runtime=django&repo=shopify%2Fshopify_django_app&file_to_open=README.nitrous.md)
+
+
 Regular Django Application
 --------------------------
 
