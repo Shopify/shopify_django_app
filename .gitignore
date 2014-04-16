@@ -13,3 +13,4 @@ tags
 /pyactiveresource
 /shopify
 *.sqlite3
+py27env
