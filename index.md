@@ -1,3 +1,7 @@
+---
+layout: index
+---
+
 Shopify Django App Example
 ==========================
 
