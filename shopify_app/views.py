@@ -1,6 +1,6 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.template import RequestContext
 from django.conf import settings
 import shopify
@@ -13,13 +13,12 @@ def login(request):
 
     # If the ${shop}.myshopify.com address is already provided in the URL,
     # just skip to authenticate
-    if request.REQUEST.get('shop'):
+    if request.GET.get('shop'):
         return authenticate(request)
-    return render_to_response('shopify_app/login.html', {},
-                              context_instance=RequestContext(request))
+    return render(request, 'shopify_app/login.html', {})
 
 def authenticate(request):
-    shop = request.REQUEST.get('shop')
+    shop = request.POST.get('shop')
     if shop:
         scope = settings.SHOPIFY_API_SCOPE
         redirect_uri = request.build_absolute_uri(reverse('shopify_app.views.finalize'))
@@ -29,12 +28,12 @@ def authenticate(request):
     return redirect(_return_address(request))
 
 def finalize(request):
-    shop_url = request.REQUEST.get('shop')
+    shop_url = request.GET.get('shop')
     try:
         shopify_session = shopify.Session(shop_url)
         request.session['shopify'] = {
             "shop_url": shop_url,
-            "access_token": shopify_session.request_token(request.REQUEST)
+            "access_token": shopify_session.request_token(request.GET)
         }
 
     except Exception:

@@ -85,7 +85,7 @@ if not USING_APP_ENGINE:
             'django.core.context_processors.static',
     )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,6 +99,13 @@ ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
 )
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(SITE_ROOT, 'templates')],
+        'APP_DIRS': True,
+    }
+]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -141,3 +148,5 @@ LOGGING = {
         },
     }
 }
+
+ALLOWED_HOSTS = []
