@@ -62,8 +62,9 @@ STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'static'),
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '#w%yp9_5wnupojr=4o0mwap#!)y=q9ovu=o#xnytga7u5^bf27'
+# Make this unique and store it as an environment variable. 
+# Do not share it with anyone or commit it to version control.
+SECRET_KEY = os.environ['DJANGO_SECRET']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
