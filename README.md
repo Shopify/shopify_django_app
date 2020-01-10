@@ -22,6 +22,11 @@ This was built and tested with
 - django 3.0.2
 - shopifyapi 5.1.2
 
+To setup the python dependencies you can run
+```
+pip install -r ./requirements.txt
+```
+
 Get It Running
 --------------
 
