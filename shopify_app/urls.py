@@ -1,8 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.urls import path
 
-urlpatterns = patterns('',
-        url(r'^$', 'shopify_app.views.login'),
-        url(r'^authenticate/$', 'shopify_app.views.authenticate'),
-        url(r'^finalize/$', 'shopify_app.views.finalize'),
-        url(r'^logout/$', 'shopify_app.views.logout'),
-)
+from . import views
+
+urlpatterns = [
+    path('login/', views.login, name='shopify_app_login'),
+    path('authenticate/', views.authenticate, name='shopify_app_authenticate'),
+    path('finalize/', views.finalize, name='shopify_app_login_finalize'),
+    path('logout/', views.logout, name='shopify_app_logout'),
+]
