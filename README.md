@@ -6,26 +6,12 @@ This project makes it easy to get a Shopify app up and running with
 [Python Shopify API](https://github.com/shopify/shopify_python_api).
 
 This project  simply displays basic information about the shop's products
-and orders. 
+and orders.
 
 This project has the following structure
-- `shopify_app` an app which handles authentication (meant to be reusable) 
+- `shopify_app` an app which handles authentication (meant to be reusable)
 - `home` an app which contains the example code to demonstrate how to use the API (meant to be modified or replaced to create your Shopify App).
 - `shopify_django_app` project files for serving this app.
-
-
-Requirements
-------------
-This was built and tested with
-
-- python 3.6.5
-- django 3.0.2
-- shopifyapi 5.1.2
-
-To setup the python dependencies you can run
-```
-pip install -r ./requirements.txt
-```
 
 Get It Running
 --------------
@@ -44,9 +30,10 @@ for the next steps
 
 ### Run the App
 
-Run the following command in the repo (remember to be using the correct python and dependencies)
+Run the following commands in the repo. We use [pipenv](https://github.com/pypa/pipenv) to get running faster
 ```
-SHOPIFY_API_KEY=[key] SHOPIFY_API_SECRET=[secret] python manage.py runserver
+pipenv install
+SHOPIFY_API_KEY=[key] SHOPIFY_API_SECRET=[secret] pipenv run python manage.py runserver
 ```
 
 You may get warnings about migrations, but they should not stop you.

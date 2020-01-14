@@ -1,2 +1,0 @@
-django>=3.0.2
-shopifyapi>=5.1.2
