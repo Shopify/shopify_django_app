@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.template import RequestContext
 from django.apps import apps
+import hmac, base64, hashlib, binascii, os
 import shopify
 
 def _return_address(request):
@@ -31,20 +32,41 @@ def authenticate(request):
     shop_url = _shop(request)
     scope = apps.get_app_config('shopify_app').SHOPIFY_API_SCOPE
     redirect_uri = request.build_absolute_uri(reverse(finalize))
-    permission_url = _new_session(shop_url).create_permission_url(scope, redirect_uri)
+    state = binascii.b2a_hex(os.urandom(15)).decode("utf-8")
+    request.session['shopify_oauth_state_param'] = state
+    permission_url = _new_session(shop_url).create_permission_url(scope, redirect_uri, state)
     return redirect(permission_url)
 
 def finalize(request):
-    #try:
-    shop_url = _shop(request)
-    session = _new_session(shop_url)
-    request.session['shopify'] = {
-        "shop_url": shop_url,
-        "access_token": session.request_token(request.GET)
-    }
-    # except Exception:
-    #     messages.error(request, "Could not log in to Shopify store.")
-    #     return redirect(reverse(login))
+    api_secret = apps.get_app_config('shopify_app').SHOPIFY_API_SECRET
+    params = request.GET.dict()
+
+    if request.session['shopify_oauth_state_param'] != params['state']:
+        messages.error(request, 'Anti-forgery state token does not match the initial request.')
+        return redirect(reverse(login))
+    else:
+        request.session.pop('shopify_oauth_state_param', None)
+
+    myhmac = params.pop('hmac')
+    line = '&'.join([
+        '%s=%s' % (key, value)
+        for key, value in sorted(params.items())
+    ])
+    h = hmac.new(api_secret.encode('utf-8'), line.encode('utf-8'), hashlib.sha256)
+    if hmac.compare_digest(h.hexdigest(), myhmac) == False:
+        messages.error(request, "Could not verify a secure login")
+        return redirect(reverse(login))
+
+    try:
+        shop_url = _shop(request)
+        session = _new_session(shop_url)
+        request.session['shopify'] = {
+            "shop_url": shop_url,
+            "access_token": session.request_token(request.GET)
+        }
+    except Exception:
+        messages.error(request, "Could not log in to Shopify store.")
+        return redirect(reverse(login))
     messages.info(request, "Logged in to shopify store.")
     request.session.pop('return_to', None)
     return redirect(_return_address(request))
