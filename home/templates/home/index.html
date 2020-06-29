@@ -26,8 +26,8 @@
   {% for product in products %}
     <div class="product box">
       <div class="wrapper">
-        {% if products.images %}
-          <img src=="{{ product.images.first.small }}" />
+        {% if product.images %}
+          <img src="{{ product.images.0.small }}" />
         {% endif %}
 
         <h4><a href="https://{{ current_shop.domain }}/admin/products/{{ product.id }}">{{ product.title }}</a></h4>
