@@ -31,9 +31,18 @@ for the next steps
 ### Run the App
 
 Run the following commands in the repo. We use [pipenv](https://github.com/pypa/pipenv) to get running faster
+
+- create a `.env` file in the root directory of this app
+- Add to it
+```
+SHOPIFY_API_KEY=[your api_key]
+SHOPIFY_API_SECRET=[your api_secret]
+DJANGO_SECRET="a secret string that only you know"
+```
+- run the app
 ```
 pipenv install
-SHOPIFY_API_KEY=[key] SHOPIFY_API_SECRET=[secret] pipenv run python manage.py runserver
+pipenv run python manage.py runserver
 ```
 
 You may get warnings about migrations, but they should not stop you.
