@@ -37,6 +37,8 @@ SHOPIFY_API_SECRET=[your api secret]
 ```
 2. Generate a secret key and add it to `.env` by running the following in the command line: `printf 'DJANGO_SECRET=' >> .env; python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))' >> .env`
 
+   * Tip for PC Users: Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
 ### Run the App
 
 Run the following commands in the repo. We use [pipenv](https://github.com/pypa/pipenv) to get running faster
