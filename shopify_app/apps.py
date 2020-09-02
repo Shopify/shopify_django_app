@@ -19,8 +19,8 @@ class ShopifyAppConfig(AppConfig):
     SHOPIFY_API_SECRET = os.environ.get('SHOPIFY_API_SECRET')
 
     # API_VERSION specifies which api version that the app will communicate with
-    SHOPIFY_API_VERSION = 'unstable'
+    SHOPIFY_API_VERSION = os.environ.get('SHOPIFY_API_VERSION', 'unstable')
 
     # See http://api.shopify.com/authentication.html for available scopes
     # to determine the permisssions your app will need.
-    SHOPIFY_API_SCOPE = ['read_products', 'read_orders']
+    SHOPIFY_API_SCOPE = os.environ.get('SHOPIFY_API_SCOPE', 'read_products,read_orders').split(',')
