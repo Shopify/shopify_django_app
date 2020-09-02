@@ -39,18 +39,20 @@ SHOPIFY_API_SECRET=[your api secret]
 
    * Tip for PC Users: Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
+
+3. [Optional] you can add to `.env` the api version and api scopes environment variables:
+
+  * `SHOPIFY_API_VERSION` default is `unstable`
+
+  * `SHOPIFY_API_SCOPE` a comma-separated list of scopes, default is `read_products,read_orders`
+
+
+
 ### Run the App
 
-Run the following commands in the repo. We use [pipenv](https://github.com/pypa/pipenv) to get running faster
+We use [pipenv](https://github.com/pypa/pipenv) to get running faster. With the
+`.env` already created in the root directory, run the app:
 
-- create a `.env` file in the root directory of this app
-- Add to it
-```
-SHOPIFY_API_KEY=[your api_key]
-SHOPIFY_API_SECRET=[your api_secret]
-DJANGO_SECRET="a secret string that only you know"
-```
-- run the app
 ```
 pipenv install
 pipenv run python manage.py runserver
