@@ -37,7 +37,7 @@ SHOPIFY_API_SECRET=[your api secret]
 ```
 2. Generate a secret key and add it to `.env` by running the following in the command line: `printf 'DJANGO_SECRET=' >> .env; python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))' >> .env`
 
-   * For PC Users: Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Or you can generate a secret key using the Python interpreter and manually at the Django secret key to your `.env` file:
+   * For PC Users: Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Or you can generate a secret key using the Python interpreter and manually add the Django secret key to your `.env` file:
    ```
    python
    import random
