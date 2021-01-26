@@ -43,16 +43,16 @@ python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwx
 
 **For PC Users:** Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Alternatively, you can generate a secret key using the Python interpreter. This requires you to manually add the Django secret key to your `.env` file by doing the following:
 
->Open the python interpreter:
->```
->python
->```
->Inside the python interpreter, generate the secret key, copy it, and exit:
->```python
+Open the python interpreter:
+```
+python
+```
+Inside the python interpreter, generate the secret key, copy it, and exit:
+```python
 >>> import random
 >>> print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))
 >>> exit()
->```
+```
 
 
 3. [Optional] you can add the api version and api scopes environment variables to the `.env` file:
