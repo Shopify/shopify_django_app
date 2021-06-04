@@ -1,8 +1,9 @@
-asgiref==3.2.10
-Django==3.0.8
-pyactiveresource==2.2.1
-pytz==2020.1
-PyYAML==5.3.1
-ShopifyAPI==8.0.1
-six==1.15.0
-sqlparse==0.3.1
+-i https://pypi.org/simple/
+asgiref==3.3.4
+django==3.1.9
+pyactiveresource==2.2.2
+pytz==2021.1
+pyyaml==5.4.1
+shopifyapi==8.0.1
+six==1.16.0
+sqlparse==0.4.1
