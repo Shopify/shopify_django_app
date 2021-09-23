@@ -88,3 +88,9 @@ local_settings.py
 .env
 db.sqlite3
 
+# Magiclytics
+.history/
+.venv/
+.vscode/
+*.pem
+DEVELOPMENT.md
