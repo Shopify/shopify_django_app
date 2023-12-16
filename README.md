@@ -35,24 +35,29 @@ for the next steps.
 cp .env.local .env
 ```
 
-2. Generate a secret key and add it to `.env` by running the following in the command line: 
-
-```
-python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))' >> .env
-```
-
-**For PC Users:** Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Alternatively, you can generate a secret key using the Python interpreter. This requires you to manually add the Django secret key to your `.env` file by doing the following:
+2. Generate a secret key and fill out the `DJANGO_SECRET` value in `.env` file by running the following in the terminal 
 
 Open the python interpreter:
 ```
-python
+python or python3
 ```
 Inside the python interpreter, generate the secret key, copy it, and exit:
+
 ```python
 >>> import random
 >>> print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))
 >>> exit()
+
 ```
+Or use the command below in your terminal. Copy and paste the output into the value of `DJANGO_SECRET` in .env
+
+```
+python3 -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))' >> .env
+```
+
+
+**For Windows Users:** Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Alternatively, you can generate a secret key using the Python interpreter. This requires you to manually add the Django secret key to your `.env` file by doing the following:
+
 
 
 3. [Optional] you can add the api version and api scopes environment variables to the `.env` file:
@@ -60,6 +65,54 @@ Inside the python interpreter, generate the secret key, copy it, and exit:
   * `SHOPIFY_API_VERSION` default is `unstable`
 
   * `SHOPIFY_API_SCOPE` a comma-separated list of scopes, default is `read_products,read_orders`
+
+### Manual Setup [Optional] 
+
+4. Create virtual environment
+
+For Linux and macOS
+
+```
+python3 -m venv virtual         # 'virtual' can be any name/term
+```
+
+For Windows
+```
+python -m venv virtual
+```
+
+5. Activate the virtual environment
+
+For Linux and macOS 
+```
+. virtual/bin/activate
+```
+or 
+```
+source virtual/bin/activate
+```
+
+For windows
+```
+source virtual\Scripts\activate
+
+```
+
+6. Install dependencies
+```
+pip install -r requirements.txt
+```
+
+7. Apply Migrations
+```
+python3 manage.py migrate
+```
+
+8. Run the app
+```
+python3 manage.py runserver
+```
+
 
 
 ### Run the App
