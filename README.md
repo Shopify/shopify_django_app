@@ -58,6 +58,8 @@ python3 -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvw
 
 **For Windows Users:** Run this command in [GIT Bash](https://git-scm.com/) or [Windows Subsystem For Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Alternatively, you can generate a secret key using the Python interpreter. This requires you to manually add the Django secret key to your `.env` file by doing the following:
 
+**[For Windows OS]:** Use ```python``` instead of  ```python3``` in CMD
+
 
 
 3. [Optional] you can add the api version and api scopes environment variables to the `.env` file:
@@ -76,10 +78,6 @@ For Linux and macOS
 python3 -m venv virtual         # 'virtual' can be any name/term
 ```
 
-For Windows
-```
-python -m venv virtual
-```
 
 5. Activate the virtual environment
 
