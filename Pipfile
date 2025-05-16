@@ -6,8 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = ">=3.0.2"
-ShopifyAPI = ">=5.1.2"
+django = ">=5.1.4"
+ShopifyAPI = ">=12.7.0"
 
 [requires]
-python_version = "3.8"
+python_version = "3.13"
